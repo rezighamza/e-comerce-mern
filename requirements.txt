@@ -1,0 +1,8 @@
+[] user auth 
+[] user can search the categories 
+[] user can search the products 
+[] user can pay (must be auth)
+[] user can manage the cart (must be auth)
+[] admin can manage users
+[] admin can manage categories 
+[] admin can manage products
