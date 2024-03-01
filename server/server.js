@@ -6,7 +6,7 @@ const productRoutes = require('./routes/productRoutes');
 const categorieRoutes = require('./routes/categorieRoutes');
 const userRoutes = require('./routes/userRoutes');
 const cookieParser = require('cookie-parser');
-const formidableMiddleware = require('express-formidable');
+
 
 
 
@@ -15,7 +15,7 @@ const app = express();
 dotenv.config();
 app.use(cookieParser());
 
-app.use(formidableMiddleware());
+
 app.use(cors());
 app.use(express.json());
 

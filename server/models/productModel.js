@@ -14,6 +14,10 @@ const productSchema = new Schema({
         data : Buffer,
         contentType : String
     },
+    categorie:{
+        type: Schema.Types.ObjectId,
+        ref: 'Categorie'
+    }
 });
 
 const Product = mongoose.model('Product', productSchema);

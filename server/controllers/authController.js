@@ -15,8 +15,9 @@ function loginController(req, res) {
                         return res.status(400).json({ message: 'Invalid credentials' });
                     }
                     const token = JWT.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-                    res.cookie('token', token, { httpOnly: true });
-                    res.status(200).json({ message: 'Login successful' });
+                    res.status(200).json({token
+                    }
+                );
                 }
                 )
                 .catch(err => res.status(500).json({ message: 'Server error' }));

@@ -38,9 +38,16 @@ async function getSingleProductImgController(req,res){
 async function addProductController(req,res){
     const {name,price} = req.fields;
     const {path} = req.files.image;
+    console.log(req.files.image);
     try {
         const imagedata = fs.readFileSync(path);
         const contentType = req.files.image.type;
+        if (!imagedata || !contentType) {
+            return res.status(400).json({message:'Image is required'});
+        }
+        if(imagedata.length > 1000000){
+            return res.status(400).json({message:'Image size should not exceed 1mb'});
+        }
         const product = new Product({name,price,image:{data:imagedata,contentType:contentType}});
         await product.save();
         res.status(201).json({message:'Product added successfully'});
